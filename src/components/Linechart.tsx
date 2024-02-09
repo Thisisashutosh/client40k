@@ -79,7 +79,7 @@ const LineChart = () => {
   }, []);
   return (
     <>
-      <div className="bh-white m-auto h-[30vh] w-[calc(100vw-20rem)] rounded-lg border p-4 md:col-span-2 lg:h-[60vh]">
+      <div className="bh-white m-auto h-[30vh] w-full md:w-[calc(100vw-20rem)] overflow-hidden rounded-lg border p-4 md:col-span-2 lg:h-[60vh]">
         <Line data={chartData} options={chartOptions} />
       </div>
     </>

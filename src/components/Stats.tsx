@@ -3,7 +3,7 @@ import React from "react";
 const Stats = () => {
   return (
     <div>
-      <div className="w-[calc(100vw-16rem)]">
+      <div className=" w-screen md:w-[calc(100vw-16rem)]">
         <div className="mx-auto grid max-w-screen-lg gap-4 p-4 sm:grid-cols-2 lg:grid-cols-3">
           <div className="max-w-md rounded-lg border px-6 pt-6 pb-10">
             <div className="inline-block rounded-full border-8 border-emerald-50 bg-emerald-200 p-2 text-emerald-500">
@@ -37,7 +37,7 @@ const Stats = () => {
               </svg>
             </div>
             <p className="text-sm font-medium text-gray-500">Vistors</p>
-            <p className="text-4xl font-medium text-gray-800">24,430</p>
+            <p className="text-4xl font-medium text-gray-800 overflow-hidden">24,430</p>
             <span className="float-right rounded-full bg-rose-100 px-1 text-sm font-medium text-rose-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +115,7 @@ const Stats = () => {
               </svg>
             </div>
             <p className="text-sm font-medium text-gray-500">Customers</p>
-            <p className="text-4xl font-medium text-gray-800">3,405</p>
+            <p className="text-4xl font-medium text-gray-800 overflow-hidden">3,405</p>
             <span className="float-right rounded-full bg-emerald-100 px-1 text-sm font-medium text-emerald-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -174,7 +174,7 @@ const Stats = () => {
               </svg>
             </div>
             <p className="text-sm font-medium text-gray-500">Daily Sales</p>
-            <p className="text-4xl font-medium text-gray-800">$405</p>
+            <p className="text-4xl font-medium text-gray-800 overflow-hidden">$405</p>
             <span className="float-right rounded-full bg-emerald-100 px-1 text-sm font-medium text-emerald-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
