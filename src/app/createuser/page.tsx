@@ -9,7 +9,7 @@ const Createuser = () => {
       <div className="fixed hidden md:block">
         <Sidebar />
       </div>
-      <div className="fixed block md:hidden">
+      <div className="fixed block md:hidden z-50">
         <Menu/>
       </div>
       <div className="w-full h-screen md:w-[calc(100vw-16rem)] p-4 mt-5 md:mt-0 md:ml-64 flex flex-col items-center justify-center">

@@ -16,7 +16,7 @@ const Menu = () => {
   // TEMPORARY
   const user = false;
   return (
-    <div className="z-50">
+    <div className="">
       {open ? (
         <svg
           width="50px"
