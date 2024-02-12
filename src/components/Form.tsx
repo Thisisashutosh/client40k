@@ -211,7 +211,7 @@ const Form = () => {
                           </select>
                         </div>
                         {/* <Dropdown data={data} setData={setData} toast={toast} /> */}
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <button className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300 transform text-white font-bold py-2 px-4 rounded">
                           Submit
                         </button>
                       </div>

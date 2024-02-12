@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex justify-start">
+    <div className="flex justify-start overflow-x-hidden">
       <div className="fixed hidden md:block">
         <Sidebar />
       </div>
