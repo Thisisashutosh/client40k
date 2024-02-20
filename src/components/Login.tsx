@@ -3,15 +3,22 @@ import { auth } from "@/firebase-config";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
+      const userJSON = JSON.stringify(user);
+      localStorage.setItem("user", userJSON);
       console.log(user);
+      router.push("/");
       // navigateTo("/");
     } catch (err: any) {
       toast.error(err.message);

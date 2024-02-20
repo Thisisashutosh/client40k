@@ -7,34 +7,23 @@ import {
 } from "firebase/auth";
 import { auth } from "@/firebase-config";
 import toast, { Toaster } from "react-hot-toast";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState({});
-  // const router = useRouter();
-  // const [routerReady, setRouterReady] = useState(false);
-  // useEffect(() => {
-  //   // Wait for router to be ready
-  //   setRouterReady(true);
-  // }, [router]);
-  // const navigateTo = (path: any) => {
-  //   if (routerReady) {
-  //     router.push(path);
-  //   }
-  // };
+  const router = useRouter();
 
-  // onAuthStateChanged(auth, (currentUser) => setUser(currentUser));
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
 
-  const handleSubmit = async () => {
     try {
       const user = await createUserWithEmailAndPassword(auth, email, password);
       const userJSON = JSON.stringify(user);
       localStorage.setItem("user", userJSON);
       console.log(user);
-      // navigateTo("/");
+      router.push("/");
     } catch (err: any) {
       toast.error(err.message);
     }

@@ -37,7 +37,7 @@ const LineChart = () => {
           label: "Sales $",
           data: [8514, 11255, 9885, 15554, 28551, 26318, 21579],
           borderColor: "#1C274C",
-          backgroundColor: "transparent",
+          backgroundColor: "#1C274C",
           tension: 0.4, // Adjust the line curve
           borderWidth: 3, // Adjust the line thickness
           pointBackgroundColor: "#1C274C", // Adjust the point color
@@ -79,7 +79,7 @@ const LineChart = () => {
   }, []);
   return (
     <>
-      <div className="bh-white m-auto h-[30vh] w-full md:w-[calc(100vw-20rem)] overflow-hidden rounded-lg border p-4 md:col-span-2 lg:h-[60vh]">
+      <div className="bh-white m-auto h-[30vh] w-full md:w-[calc(100vw-20rem)] xl:w-[calc(100vw-40rem)] overflow-hidden rounded-lg border p-4 md:col-span-2 lg:h-[60vh]">
         <Line data={chartData} options={chartOptions} />
       </div>
     </>

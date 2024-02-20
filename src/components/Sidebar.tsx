@@ -1,14 +1,16 @@
 "use client";
-import React, { useState } from "react";
+import React, {useEffect, useState } from "react";
 
-const Topbar = () => {
-  const [user, setUser] = useState(null);
-  // const userJSON = localStorage.getItem("user");
-  // if (userJSON !== null) {
-  //   setUser(JSON.parse(userJSON));
-  // } else {
-  //   console.log("User data not found in localStorage");
-  // }
+const Sidebar = () => {
+  const [userData, setUserData] = useState(null);
+  useEffect(() => {
+    const userJSON = localStorage.getItem("user") || "";
+    if (userJSON.length !== 0) {
+      setUserData(JSON.parse(userJSON));
+    } else {
+      console.log("User data not found in localStorage");
+    }
+  }, []);
 
   const logout = async () => {};
   return (
@@ -233,7 +235,7 @@ const Topbar = () => {
             </a>
           </nav>
 
-          {user ? (
+          {userData ? (
             <a href="/login" className="flex items-center px-4 -mx-2">
               <img
                 className="object-cover mx-2 rounded-full h-9 w-9"
@@ -241,7 +243,7 @@ const Topbar = () => {
                 alt="avatar"
               />
               <span className="mx-2 font-medium text-gray-800 dark:text-gray-200">
-                John Doe
+                {userData.user.email.split('@')[0]}
               </span>
             </a>
           ) : (
@@ -259,4 +261,4 @@ const Topbar = () => {
   );
 };
 
-export default Topbar;
+export default Sidebar;
