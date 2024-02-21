@@ -1,14 +1,20 @@
 "use client";
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Sidebar = () => {
   const [userData, setUserData] = useState(null);
+  const [googleUserData, setGoogleUserData] = useState(null);
   useEffect(() => {
     const userJSON = localStorage.getItem("user") || "";
+    const googleUserJSON = localStorage.getItem("googleuser") || "";
     if (userJSON.length !== 0) {
       setUserData(JSON.parse(userJSON));
     } else {
-      console.log("User data not found in localStorage");
+      if (googleUserJSON.length !== 0) {
+        setGoogleUserData(JSON.parse(googleUserJSON));
+      } else {
+        console.log("No user data present, please signIn");
+      }
     }
   }, []);
 
@@ -243,17 +249,26 @@ const Sidebar = () => {
                 alt="avatar"
               />
               <span className="mx-2 font-medium text-gray-800 dark:text-gray-200">
-                {userData.user.email.split('@')[0]}
+                {userData.user.email.split("@")[0]}
+              </span>
+            </a>
+          ) : googleUserData ? (
+            <a href="/login" className="flex items-center px-4 -mx-2">
+              <img
+                className="object-cover mx-2 rounded-full h-9 w-9"
+                src={googleUserData.photoURL}
+                alt="avatar"
+              />
+              <span className="mx-2 font-medium text-gray-800 dark:text-gray-200">
+                {googleUserData.displayName}
               </span>
             </a>
           ) : (
-            <>
-              <a href="/login" className="mt-6">
-                <button className="w-full px-6 py-3 text-base font-medium tracking-wide text-black capitalize transition-colors duration-300 transform bg-white rounded-lg hover:bg-gray-300">
-                  Sign In
-                </button>
-              </a>
-            </>
+            <a href="/login" className="mt-6">
+              <button className="w-full px-6 py-3 text-base font-medium tracking-wide text-black capitalize transition-colors duration-300 transform bg-white rounded-lg hover:bg-gray-300">
+                Sign In
+              </button>
+            </a>
           )}
         </div>
       </aside>

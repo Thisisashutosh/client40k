@@ -3,7 +3,8 @@
 import React, { useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import { auth } from "@/firebase-config";
 import toast, { Toaster } from "react-hot-toast";
@@ -12,9 +13,35 @@ import { useRouter } from "next/navigation";
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  nsljgnwr;lgnwrlkgmwr
   const [password, setPassword] = useState("");
   const router = useRouter();
+
+  const provider = new GoogleAuthProvider();
+  const signin = () =>
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        const userJSON = JSON.stringify(user);
+        localStorage.setItem("googleuser", userJSON);
+        console.log(user);
+        router.push("/");
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -56,9 +83,9 @@ const Register = () => {
               Welcome back!
             </p>
 
-            <a
-              href="#"
-              className="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 "
+            <button
+              onClick={signin}
+              className="flex items-center w-full justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg hover:bg-gray-50 "
             >
               <div className="px-4 py-2">
                 <svg className="w-6 h-6" viewBox="0 0 40 40">
@@ -84,7 +111,7 @@ const Register = () => {
               <span className="w-5/6 px-4 py-3 font-bold text-center">
                 Sign up with Google
               </span>
-            </a>
+            </button>
 
             <div className="flex items-center justify-between mt-4">
               <span className="w-1/5 border-b  lg:w-1/4"></span>
