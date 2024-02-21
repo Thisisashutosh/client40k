@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  nsljgnwr;lgnwrlkgmwr
   const [password, setPassword] = useState("");
   const router = useRouter();
 
