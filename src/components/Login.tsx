@@ -8,11 +8,21 @@ import {
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import Overlay from "@/components/Overlay";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  const handleForgotPasswordClick = () => {
+    setShowOverlay(true);
+  };
+
+  const handleCloseOverlay = () => {
+    setShowOverlay(false);
+  };
 
   const provider = new GoogleAuthProvider();
   const signin = () =>
@@ -144,7 +154,10 @@ const Login = () => {
                 >
                   Password
                 </label>
-                <a href="#" className="text-xs text-gray-500  hover:underline">
+                <a
+                  onClick={handleForgotPasswordClick}
+                  className="text-xs text-gray-500 cursor-pointer hover:underline"
+                >
                   Forget Password?
                 </a>
               </div>
@@ -180,6 +193,7 @@ const Login = () => {
             </div>
           </div>
         </div>
+        {showOverlay && <Overlay handleCloseOverlay={handleCloseOverlay} />}
       </div>
     </>
   );
