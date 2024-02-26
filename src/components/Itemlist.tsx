@@ -1,6 +1,17 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
+import Editoverlay from "@/components/Editoverlay";
 
 const Itemlist = () => {
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  const handleeditbuttonclick = () => {
+    setShowOverlay(true);
+  };
+
+  const handleCloseOverlay = () => {
+    setShowOverlay(false);
+  };
   return (
     <div>
       <div className="flex flex-col">
@@ -50,6 +61,7 @@ const Itemlist = () => {
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
                         type="button"
+                        onClick={handleeditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Edit
@@ -76,6 +88,7 @@ const Itemlist = () => {
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
                         type="button"
+                        onClick={handleeditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Edit
@@ -102,6 +115,7 @@ const Itemlist = () => {
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
                         type="button"
+                        onClick={handleeditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Edit
@@ -128,6 +142,7 @@ const Itemlist = () => {
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
                         type="button"
+                        onClick={handleeditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Edit
@@ -154,6 +169,7 @@ const Itemlist = () => {
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
                         type="button"
+                        onClick={handleeditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Edit
@@ -172,6 +188,7 @@ const Itemlist = () => {
           </div>
         </div>
       </div>
+      {showOverlay && <Editoverlay handleCloseOverlay={handleCloseOverlay} />}
     </div>
   );
 };

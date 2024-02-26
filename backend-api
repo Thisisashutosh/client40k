@@ -1,0 +1,13 @@
+starting from the baisc stuff 
+
+1. Create user page
+I will discuss the schema with anjishnu then i will inform you about the contents of the schema. Fow now let the default schema be name and email. Create a user in the database.
+
+2. User list page
+Just make a GET Api so fetch all the users in the database and send it as a response.
+
+3. Add product page
+I will discuss the schema with anjishnu then i will inform you about the contents of the schema. For now let the default schema be name of the medicine, cost of the medicine, expiration date of the medicine and amount of medicine present in the inventory.
+
+4. Inventory page
+Here make a GET api to fetch all the medicines from the database and send it as a response.
