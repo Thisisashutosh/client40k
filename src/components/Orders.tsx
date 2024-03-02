@@ -1,25 +1,16 @@
 "use client"
 import React, { useState } from "react";
-import DeactivateOverlay from "./DeactivateOverlay";
-import EditoUserOerlay from "./EditUserOverlay";
+import ConfirmOverlay from "./ConfirmOverlay";
 
-const Userlist = () => {
-  const [showDeactivateOverlay, setShowDeactivateOverlay] = useState(false);
-  const [showEditOverlay, setShowEditOverlay] = useState(false);
+const Orders = () => {
+  const [showOverlay, setShowOverlay] = useState(false);
 
-  const handleDeactivatebuttonclick = () => {
-    setShowDeactivateOverlay(true);
-  };
-  const handleDeactivateCloseOverlay = () => {
-    setShowDeactivateOverlay(false);
+  const handleeditbuttonclick = () => {
+    setShowOverlay(true);
   };
 
-  const handleEditbuttonclick = () => {
-    setShowEditOverlay(true);
-  };
-
-  const handleEditCloseOverlay = () => {
-    setShowEditOverlay(false);
+  const handleCloseOverlay = () => {
+    setShowOverlay(false);
   };
   return (
     <div>
@@ -70,17 +61,17 @@ const Userlist = () => {
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
                         type="button"
-                        onClick={handleEditbuttonclick}
+                        
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
-                        Edit
+                        Confirm
                       </button>
                       <button
                         type="button"
-                        onClick={handleDeactivatebuttonclick}
+                        onClick={handleeditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
-                        Deactivate
+                        Delete
                       </button>
                     </td>
                   </tr>
@@ -98,17 +89,16 @@ const Userlist = () => {
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
                         type="button"
-                        onClick={handleEditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
-                        Edit
+                        Confirm
                       </button>
                       <button
                         type="button"
-                        onClick={handleDeactivatebuttonclick}
+                        onClick={handleeditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
-                        Deactivate
+                        Delete
                       </button>
                     </td>
                   </tr>
@@ -126,17 +116,16 @@ const Userlist = () => {
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
                         type="button"
-                        onClick={handleEditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
-                        Edit
+                        Confirm
                       </button>
                       <button
                         type="button"
-                        onClick={handleDeactivatebuttonclick}
+                        onClick={handleeditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
-                        Deactivate
+                        Delete
                       </button>
                     </td>
                   </tr>
@@ -154,17 +143,16 @@ const Userlist = () => {
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
                         type="button"
-                        onClick={handleEditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
-                        Edit
+                        Confirm
                       </button>
                       <button
                         type="button"
-                        onClick={handleDeactivatebuttonclick}
+                        onClick={handleeditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
-                        Deactivate
+                        Delete
                       </button>
                     </td>
                   </tr>
@@ -182,17 +170,16 @@ const Userlist = () => {
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
                         type="button"
-                        onClick={handleEditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
-                        Edit
+                        Confirm
                       </button>
                       <button
                         type="button"
-                        onClick={handleDeactivatebuttonclick}
+                        onClick={handleeditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
-                        Deactivate
+                        Delete
                       </button>
                     </td>
                   </tr>
@@ -202,10 +189,9 @@ const Userlist = () => {
           </div>
         </div>
       </div>
-      {showDeactivateOverlay && <DeactivateOverlay handleCloseOverlay={handleDeactivateCloseOverlay} />}
-      {showEditOverlay && <EditoUserOerlay handleCloseOverlay={handleEditCloseOverlay} />}
+      {showOverlay && <ConfirmOverlay handleCloseOverlay={handleCloseOverlay} />}
     </div>
   );
 };
 
-export default Userlist;
+export default Orders;
