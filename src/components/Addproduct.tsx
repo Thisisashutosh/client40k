@@ -5,17 +5,11 @@ import toast, { Toaster } from "react-hot-toast";
 
 const Addproduct = () => {
   const [data, setData] = useState({
-    name: "",
-    designation: "",
-    phone: "",
-    bioID: "",
-    residingBuilding: "",
-    room: "",
-    month: "",
-    remarks: "",
-    selection: "",
-    extraData: [],
-    reportNumber: "",
+    productId: "",
+    productName: "",
+    productType: "",
+    productCode: "",
+    batchId: "",
   });
 
   return (
@@ -26,7 +20,7 @@ const Addproduct = () => {
       <div className="max-h-screen overflow-hidden border rounded p-6 bg-transparent flex items-center justify-center">
         <div className="container max-w-screen-lg mx-auto">
           <div>
-            <div className="bg-white rounded p-4 px-4 md:p-8 mb-6">
+            <div className="bg-white rounded p-4 px-4 md:p-8">
               <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
                 <div className="lg:col-span-3">
                   <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
@@ -35,11 +29,11 @@ const Addproduct = () => {
                         htmlFor="full_name"
                         className="text-sm font-semibold text-gray-900"
                       >
-                        Full Name
+                        Product ID
                       </label>
                       <input
                         onChange={(e) =>
-                          setData({ ...data, name: e.target.value })
+                          setData({ ...data, productId: e.target.value })
                         }
                         type="text"
                         name="full_name"
@@ -54,11 +48,11 @@ const Addproduct = () => {
                         htmlFor="designation"
                         className="text-sm font-semibold text-gray-900"
                       >
-                        E-mail
+                        Product Name
                       </label>
                       <input
                         onChange={(e) =>
-                          setData({ ...data, designation: e.target.value })
+                          setData({ ...data, productName: e.target.value })
                         }
                         type="text"
                         name="designation"
@@ -73,11 +67,11 @@ const Addproduct = () => {
                         htmlFor="phone"
                         className="text-sm font-semibold text-gray-900"
                       >
-                        Password
+                        Product Type
                       </label>
                       <input
                         onChange={(e) =>
-                          setData({ ...data, phone: e.target.value })
+                          setData({ ...data, productType: e.target.value })
                         }
                         type="text"
                         name="phone"
@@ -92,11 +86,11 @@ const Addproduct = () => {
                         htmlFor="biometric"
                         className="text-sm font-semibold text-gray-900"
                       >
-                        Biometric ID
+                        Product Code
                       </label>
                       <input
                         onChange={(e) =>
-                          setData({ ...data, bioID: e.target.value })
+                          setData({ ...data, productCode: e.target.value })
                         }
                         type="text"
                         name="biometric"
@@ -112,11 +106,11 @@ const Addproduct = () => {
                         htmlFor="residing_building"
                         className="text-sm font-semibold text-gray-900"
                       >
-                        Residing Building
+                        Batch ID
                       </label>
                       <input
                         onChange={(e) =>
-                          setData({ ...data, residingBuilding: e.target.value })
+                          setData({ ...data, batchId: e.target.value })
                         }
                         type="text"
                         name="residing_building"
@@ -127,66 +121,9 @@ const Addproduct = () => {
                       />
                     </div>
 
-                    <div className="md:col-span-2">
-                      <label
-                        htmlFor="room"
-                        className="text-sm font-semibold text-gray-900"
-                      >
-                        Room Number
-                      </label>
-                      <input
-                        onChange={(e) =>
-                          setData({ ...data, room: e.target.value })
-                        }
-                        type="text"
-                        name="room"
-                        id="room"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        // value=""
-                      />
-                    </div>
-
-                    <div className="md:col-span-3">
-                      <label
-                        htmlFor="month"
-                        className="text-sm font-semibold text-gray-900"
-                      >
-                        Paying for the month
-                      </label>
-                      <input
-                        onChange={(e) =>
-                          setData({ ...data, month: e.target.value })
-                        }
-                        type="text"
-                        name="month"
-                        id="month"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        // value=""
-                      />
-                    </div>
-
-                    <div className="md:col-span-5">
-                      <label
-                        htmlFor="full_name"
-                        className="text-sm font-semibold text-gray-900"
-                      >
-                        Remarks
-                      </label>
-                      <input
-                        onChange={(e) =>
-                          setData({ ...data, remarks: e.target.value })
-                        }
-                        type="text"
-                        name="remarks"
-                        id="remarks"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        //value=""
-                      />
-                    </div>
-
                     <div className="md:col-span-5 text-right">
-                      <div className="flex items-start justify-between mt-5">
-                        <div className="relative">
+                      <div className="flex items-center justify-end mt-5">
+                        {/* <div className="relative">
                           <svg
                             className="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -198,18 +135,8 @@ const Addproduct = () => {
                               fill-rule="nonzero"
                             />
                           </svg>
-                          <select className="border text-sm font-semibold text-gray-900 border-gray-300 rounded h-10 pl-5 pr-10 bg-gray-50 appearance-none">
-                            <option>Choose a color</option>
-                            <option>Red</option>
-                            <option>Blue</option>
-                            <option>Yellow</option>
-                            <option>Black</option>
-                            <option>Orange</option>
-                            <option>Purple</option>
-                            <option>Gray</option>
-                            <option>White</option>
-                          </select>
-                        </div>
+                         
+                        </div> */}
                         {/* <Dropdown data={data} setData={setData} toast={toast} /> */}
                         <button className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300 transform text-white font-bold py-2 px-4 rounded">
                           Submit

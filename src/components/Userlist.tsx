@@ -40,7 +40,7 @@ const Userlist = () => {
                       scope="col"
                       className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
                     >
-                      Age
+                      User Type
                     </th>
                     <th
                       scope="col"
@@ -62,7 +62,7 @@ const Userlist = () => {
                       John Brown
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      45
+                      Admin
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                       New York No. 1 Lake Park
@@ -90,7 +90,7 @@ const Userlist = () => {
                       Jim Green
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      27
+                      Super Admin
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                       London No. 1 Lake Park
@@ -118,7 +118,7 @@ const Userlist = () => {
                       Joe Black
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      31
+                      Packaging
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                       Sidney No. 1 Lake Park
@@ -146,7 +146,7 @@ const Userlist = () => {
                       Edward King
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      16
+                      Rider
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                       LA No. 1 Lake Park
@@ -174,7 +174,7 @@ const Userlist = () => {
                       Jim Red
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      45
+                      Finance
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                       Melbourne No. 1 Lake Park

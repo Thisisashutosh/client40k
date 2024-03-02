@@ -5,17 +5,14 @@ import toast, { Toaster } from "react-hot-toast";
 
 const Form = () => {
   const [data, setData] = useState({
+    id: "",
     name: "",
-    designation: "",
+    email:"",
     phone: "",
-    bioID: "",
-    residingBuilding: "",
-    room: "",
-    month: "",
-    remarks: "",
-    selection: "",
-    extraData: [],
-    reportNumber: "",
+    desc: "",
+    address: "",
+    password: "",
+    usertype: "",
   });
 
   return (
@@ -26,7 +23,7 @@ const Form = () => {
       <div className="max-h-screen overflow-hidden border rounded p-6 bg-transparent flex items-center justify-center">
         <div className="container max-w-screen-lg mx-auto">
           <div>
-            <div className="bg-white rounded p-4 px-4 md:p-8 mb-6">
+            <div className="bg-white rounded p-4 px-4 md:p-8">
               <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
                 <div className="lg:col-span-3">
                   <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
@@ -35,11 +32,11 @@ const Form = () => {
                         htmlFor="full_name"
                         className="text-sm font-semibold text-gray-900"
                       >
-                        Full Name
+                        User ID
                       </label>
                       <input
                         onChange={(e) =>
-                          setData({ ...data, name: e.target.value })
+                          setData({ ...data, id: e.target.value })
                         }
                         type="text"
                         name="full_name"
@@ -54,11 +51,11 @@ const Form = () => {
                         htmlFor="designation"
                         className="text-sm font-semibold text-gray-900"
                       >
-                        E-mail
+                        Name
                       </label>
                       <input
                         onChange={(e) =>
-                          setData({ ...data, designation: e.target.value })
+                          setData({ ...data, name: e.target.value })
                         }
                         type="text"
                         name="designation"
@@ -73,11 +70,11 @@ const Form = () => {
                         htmlFor="phone"
                         className="text-sm font-semibold text-gray-900"
                       >
-                        Password
+                        Email
                       </label>
                       <input
                         onChange={(e) =>
-                          setData({ ...data, phone: e.target.value })
+                          setData({ ...data, email: e.target.value })
                         }
                         type="text"
                         name="phone"
@@ -87,16 +84,16 @@ const Form = () => {
                       />
                     </div>
 
-                    <div className="md:col-span-2">
+                    <div className="md:col-span-5">
                       <label
                         htmlFor="biometric"
                         className="text-sm font-semibold text-gray-900"
                       >
-                        Biometric ID
+                        Phone Number
                       </label>
                       <input
                         onChange={(e) =>
-                          setData({ ...data, bioID: e.target.value })
+                          setData({ ...data, phone: e.target.value })
                         }
                         type="text"
                         name="biometric"
@@ -107,16 +104,16 @@ const Form = () => {
                       />
                     </div>
 
-                    <div className="md:col-span-3">
+                    <div className="md:col-span-5">
                       <label
                         htmlFor="residing_building"
                         className="text-sm font-semibold text-gray-900"
                       >
-                        Residing Building
+                       Description
                       </label>
                       <input
                         onChange={(e) =>
-                          setData({ ...data, residingBuilding: e.target.value })
+                          setData({ ...data, desc: e.target.value })
                         }
                         type="text"
                         name="residing_building"
@@ -132,11 +129,11 @@ const Form = () => {
                         htmlFor="room"
                         className="text-sm font-semibold text-gray-900"
                       >
-                        Room Number
+                        Address
                       </label>
                       <input
                         onChange={(e) =>
-                          setData({ ...data, room: e.target.value })
+                          setData({ ...data, address: e.target.value })
                         }
                         type="text"
                         name="room"
@@ -151,36 +148,17 @@ const Form = () => {
                         htmlFor="month"
                         className="text-sm font-semibold text-gray-900"
                       >
-                        Paying for the month
+                        Password
                       </label>
                       <input
                         onChange={(e) =>
-                          setData({ ...data, month: e.target.value })
+                          setData({ ...data, password: e.target.value })
                         }
                         type="text"
                         name="month"
                         id="month"
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                         // value=""
-                      />
-                    </div>
-
-                    <div className="md:col-span-5">
-                      <label
-                        htmlFor="full_name"
-                        className="text-sm font-semibold text-gray-900"
-                      >
-                        Remarks
-                      </label>
-                      <input
-                        onChange={(e) =>
-                          setData({ ...data, remarks: e.target.value })
-                        }
-                        type="text"
-                        name="remarks"
-                        id="remarks"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        //value=""
                       />
                     </div>
 
@@ -199,15 +177,12 @@ const Form = () => {
                             />
                           </svg>
                           <select className="border text-sm font-semibold text-gray-900 border-gray-300 rounded h-10 pl-5 pr-10 bg-gray-50 appearance-none">
-                            <option>Choose a color</option>
-                            <option>Red</option>
-                            <option>Blue</option>
-                            <option>Yellow</option>
-                            <option>Black</option>
-                            <option>Orange</option>
-                            <option>Purple</option>
-                            <option>Gray</option>
-                            <option>White</option>
+                            <option>User Type</option>
+                            <option>Admin</option>
+                            <option>Packaging</option>
+                            <option>Rider</option>
+                            <option>Finance</option>
+                            <option>Super Admin</option>
                           </select>
                         </div>
                         {/* <Dropdown data={data} setData={setData} toast={toast} /> */}

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import Editoverlay from "@/components/Editoverlay";
 
@@ -25,19 +25,37 @@ const Itemlist = () => {
                       scope="col"
                       className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
                     >
-                      Name
+                      Product ID
                     </th>
                     <th
                       scope="col"
                       className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
                     >
-                      Age
+                      Product Name
                     </th>
                     <th
                       scope="col"
                       className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
                     >
-                      Address
+                      Product Type
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
+                    >
+                      Product Code
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
+                    >
+                      Quantity
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
+                    >
+                      Batch ID
                     </th>
                     <th
                       scope="col"
@@ -50,67 +68,22 @@ const Itemlist = () => {
                 <tbody className="divide-y divide-gray-200 ">
                   <tr className="hover:bg-gray-100 ">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
-                      John Brown
+                      AD7847DDK685DF{" "}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      45
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      New York No. 1 Lake Park
-                    </td>
-                    <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
-                      <button
-                        type="button"
-                        onClick={handleeditbuttonclick}
-                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        type="button"
-                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-
-                  <tr className="hover:bg-gray-100">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
-                      Jim Green
+                      Dettol
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      27
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                      London No. 1 Lake Park
-                    </td>
-                    <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
-                      <button
-                        type="button"
-                        onClick={handleeditbuttonclick}
-                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        type="button"
-                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-
-                  <tr className="hover:bg-gray-100">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
-                      Joe Black
+                      Anticeptic
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      31
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      AGUJH7843UHKgd
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      Sidney No. 1 Lake Park
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      69
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      FBNHN74643FNLK
                     </td>
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
@@ -131,13 +104,22 @@ const Itemlist = () => {
 
                   <tr className="hover:bg-gray-100 ">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
-                      Edward King
+                      AD7847DDK685DF{" "}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      16
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      Dettol
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      LA No. 1 Lake Park
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      Anticeptic
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      AGUJH7843UHKgd
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      69
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      FBNHN74643FNLK
                     </td>
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
@@ -158,13 +140,94 @@ const Itemlist = () => {
 
                   <tr className="hover:bg-gray-100 ">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
-                      Jim Red
+                      AD7847DDK685DF{" "}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      45
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      Dettol
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      Melbourne No. 1 Lake Park
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      Anticeptic
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      AGUJH7843UHKgd
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      69
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      FBNHN74643FNLK
+                    </td>
+                    <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
+                      <button
+                        type="button"
+                        onClick={handleeditbuttonclick}
+                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        type="button"
+                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr className="hover:bg-gray-100 ">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      AD7847DDK685DF{" "}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      Dettol
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      Anticeptic
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      AGUJH7843UHKgd
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      69
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      FBNHN74643FNLK
+                    </td>
+                    <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
+                      <button
+                        type="button"
+                        onClick={handleeditbuttonclick}
+                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        type="button"
+                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr className="hover:bg-gray-100 ">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      AD7847DDK685DF{" "}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      Dettol
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      Anticeptic
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      AGUJH7843UHKgd
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      69
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      FBNHN74643FNLK
                     </td>
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
