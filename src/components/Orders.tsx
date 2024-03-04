@@ -5,7 +5,7 @@ import ConfirmOverlay from "./ConfirmOverlay";
 const Orders = () => {
   const [showOverlay, setShowOverlay] = useState(false);
 
-  const handleeditbuttonclick = () => {
+  const handledeletebuttonclick = () => {
     setShowOverlay(true);
   };
 
@@ -68,7 +68,7 @@ const Orders = () => {
                       </button>
                       <button
                         type="button"
-                        onClick={handleeditbuttonclick}
+                        onClick={handledeletebuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Delete
@@ -95,7 +95,7 @@ const Orders = () => {
                       </button>
                       <button
                         type="button"
-                        onClick={handleeditbuttonclick}
+                        onClick={handledeletebuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Delete
@@ -122,7 +122,7 @@ const Orders = () => {
                       </button>
                       <button
                         type="button"
-                        onClick={handleeditbuttonclick}
+                        onClick={handledeletebuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Delete
@@ -149,7 +149,7 @@ const Orders = () => {
                       </button>
                       <button
                         type="button"
-                        onClick={handleeditbuttonclick}
+                        onClick={handledeletebuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Delete
@@ -176,7 +176,7 @@ const Orders = () => {
                       </button>
                       <button
                         type="button"
-                        onClick={handleeditbuttonclick}
+                        onClick={handledeletebuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Delete

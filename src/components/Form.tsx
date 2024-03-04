@@ -7,13 +7,17 @@ const Form = () => {
   const [data, setData] = useState({
     id: "",
     name: "",
-    email:"",
+    email: "",
     phone: "",
     desc: "",
     address: "",
     password: "",
     usertype: "",
   });
+
+  const handleuserselection = (e: any) => {
+    setData({ ...data, usertype: e.target.value });
+  };
 
   return (
     <div>
@@ -109,7 +113,7 @@ const Form = () => {
                         htmlFor="residing_building"
                         className="text-sm font-semibold text-gray-900"
                       >
-                       Description
+                        Description
                       </label>
                       <input
                         onChange={(e) =>
@@ -177,12 +181,20 @@ const Form = () => {
                             />
                           </svg>
                           <select className="border text-sm font-semibold text-gray-900 border-gray-300 rounded h-10 pl-5 pr-10 bg-gray-50 appearance-none">
-                            <option>User Type</option>
-                            <option>Admin</option>
-                            <option>Packaging</option>
-                            <option>Rider</option>
-                            <option>Finance</option>
-                            <option>Super Admin</option>
+                            <option onClick={handleuserselection}>
+                              User Type
+                            </option>
+                            <option onClick={handleuserselection}>Admin</option>
+                            <option onClick={handleuserselection}>
+                              Packaging
+                            </option>
+                            <option onClick={handleuserselection}>Rider</option>
+                            <option onClick={handleuserselection}>
+                              Finance
+                            </option>
+                            <option onClick={handleuserselection}>
+                              Super Admin
+                            </option>
                           </select>
                         </div>
                         {/* <Dropdown data={data} setData={setData} toast={toast} /> */}

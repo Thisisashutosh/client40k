@@ -1,16 +1,25 @@
 "use client";
 import React, { useState } from "react";
 import Editoverlay from "@/components/Editoverlay";
+import DeleteOverlay from "./DeleteOverlay";
 
 const Itemlist = () => {
-  const [showOverlay, setShowOverlay] = useState(false);
+  const [showDeactivateOverlay, setShowDeactivateOverlay] = useState(false);
+  const [showEditOverlay, setShowEditOverlay] = useState(false);
 
-  const handleeditbuttonclick = () => {
-    setShowOverlay(true);
+  const handleDeactivatebuttonclick = () => {
+    setShowDeactivateOverlay(true);
+  };
+  const handleDeactivateCloseOverlay = () => {
+    setShowDeactivateOverlay(false);
   };
 
-  const handleCloseOverlay = () => {
-    setShowOverlay(false);
+  const handleEditbuttonclick = () => {
+    setShowEditOverlay(true);
+  };
+
+  const handleEditCloseOverlay = () => {
+    setShowEditOverlay(false);
   };
   return (
     <div>
@@ -88,13 +97,14 @@ const Itemlist = () => {
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
                         type="button"
-                        onClick={handleeditbuttonclick}
+                        onClick={handleEditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Edit
                       </button>
                       <button
                         type="button"
+                        onClick={handleDeactivatebuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Delete
@@ -124,13 +134,14 @@ const Itemlist = () => {
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
                         type="button"
-                        onClick={handleeditbuttonclick}
+                        onClick={handleEditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Edit
                       </button>
                       <button
                         type="button"
+                        onClick={handleDeactivatebuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Delete
@@ -160,13 +171,14 @@ const Itemlist = () => {
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
                         type="button"
-                        onClick={handleeditbuttonclick}
+                        onClick={handleEditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Edit
                       </button>
                       <button
                         type="button"
+                        onClick={handleDeactivatebuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Delete
@@ -196,13 +208,14 @@ const Itemlist = () => {
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
                         type="button"
-                        onClick={handleeditbuttonclick}
+                        onClick={handleEditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Edit
                       </button>
                       <button
                         type="button"
+                        onClick={handleDeactivatebuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Delete
@@ -232,13 +245,14 @@ const Itemlist = () => {
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
                         type="button"
-                        onClick={handleeditbuttonclick}
+                        onClick={handleEditbuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Edit
                       </button>
                       <button
                         type="button"
+                        onClick={handleDeactivatebuttonclick}
                         className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                       >
                         Delete
@@ -251,7 +265,8 @@ const Itemlist = () => {
           </div>
         </div>
       </div>
-      {showOverlay && <Editoverlay handleCloseOverlay={handleCloseOverlay} />}
+      {showDeactivateOverlay && <DeleteOverlay handleCloseOverlay={handleDeactivateCloseOverlay} />}
+      {showEditOverlay && <Editoverlay handleCloseOverlay={handleEditCloseOverlay} />}
     </div>
   );
 };

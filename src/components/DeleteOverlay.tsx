@@ -5,19 +5,21 @@ import { auth } from "@/firebase-config";
 import { sendPasswordResetEmail } from "firebase/auth";
 import toast, { Toaster } from "react-hot-toast";
 
-export default function Editoverlay(props) {
+export default function DeleteOverlay(props) {
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
-  const [data, setData] = useState({
-    name: "",
-    type: "",
-    code: "",
-    quantity: "",
-    batchID:"",
-  });
+  const [email, setEmail] = useState("");
 
-  const handleproducteditform = () => {
-   console.log(data)
+  const handleResetPassword = async () => {
+    try {
+      await sendPasswordResetEmail(auth, email);
+      // Password reset email sent!
+      toast.success("Password reset email sent! Kindly check your inbox");
+    } catch (error: any) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      toast.error(errorMessage);
+    }
   };
 
   return (
@@ -63,90 +65,24 @@ export default function Editoverlay(props) {
                           as="h3"
                           className="text-base font-semibold leading-6 text-gray-900"
                         >
-                          Edit product details
+                          Are you sure you want to deactivate this user ?
                         </Dialog.Title>
-                        <div className="mt-2">
+                        {/* <div className="mt-2">
                           <div className="">
                             <label
                               className="block mb-2 text-sm font-medium text-gray-600 "
                               htmlFor="LoggingEmailAddress"
                             >
-                              Product name
+                              Email Address
                             </label>
                             <input
                               id="LoggingEmailAddress"
                               className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
                               type="email"
-                              onChange={(e) =>
-                                setData({ ...data, name: e.target.value })
-                              }
+                              onChange={(e) => setEmail(e.target.value)}
                             />
                           </div>
-                          <div className="">
-                            <label
-                              className="block mb-2 text-sm font-medium text-gray-600 "
-                              htmlFor="LoggingEmailAddress"
-                            >
-                              Product type
-                            </label>
-                            <input
-                              id="LoggingEmailAddress"
-                              className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
-                              type="email"
-                              onChange={(e) =>
-                                setData({ ...data, type: e.target.value })
-                              }
-                            />
-                          </div>
-                          <div className="">
-                            <label
-                              className="block mb-2 text-sm font-medium text-gray-600 "
-                              htmlFor="LoggingEmailAddress"
-                            >
-                              Product code
-                            </label>
-                            <input
-                              id="LoggingEmailAddress"
-                              className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
-                              type="email"
-                              onChange={(e) =>
-                                setData({ ...data, code: e.target.value })
-                              }
-                            />
-                          </div>
-                          <div className="">
-                            <label
-                              className="block mb-2 text-sm font-medium text-gray-600 "
-                              htmlFor="LoggingEmailAddress"
-                            >
-                              Product quantity
-                            </label>
-                            <input
-                              id="LoggingEmailAddress"
-                              className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
-                              type="email"
-                              onChange={(e) =>
-                                setData({ ...data, quantity: e.target.value })
-                              }
-                            />
-                          </div>
-                          <div className="">
-                            <label
-                              className="block mb-2 text-sm font-medium text-gray-600 "
-                              htmlFor="LoggingEmailAddress"
-                            >
-                              Batch ID
-                            </label>
-                            <input
-                              id="LoggingEmailAddress"
-                              className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
-                              type="email"
-                              onChange={(e) =>
-                                setData({ ...data, batchID: e.target.value })
-                              }
-                            />
-                          </div>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>
@@ -154,9 +90,9 @@ export default function Editoverlay(props) {
                     <button
                       type="button"
                       className=" px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
-                      onClick={handleproducteditform}
+                      onClick={handleResetPassword}
                     >
-                      Submit
+                      Yes! DELETE
                     </button>
                     <button
                       type="button"
