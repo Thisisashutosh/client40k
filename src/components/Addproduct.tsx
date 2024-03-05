@@ -7,6 +7,7 @@ const Addproduct = () => {
   const [data, setData] = useState({
     productId: "",
     productName: "",
+    productQuantity:"",
     productType: "",
     productCode: "",
     batchId: "",
@@ -24,7 +25,7 @@ const Addproduct = () => {
               <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
                 <div className="lg:col-span-3">
                   <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
-                    <div className="md:col-span-5">
+                    <div className="md:col-span-2">
                       <label
                         htmlFor="full_name"
                         className="text-sm font-semibold text-gray-900"
@@ -34,6 +35,24 @@ const Addproduct = () => {
                       <input
                         onChange={(e) =>
                           setData({ ...data, productId: e.target.value })
+                        }
+                        type="text"
+                        name="full_name"
+                        id="full_name"
+                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        //value=""
+                      />
+                    </div>
+                    <div className="md:col-span-3">
+                      <label
+                        htmlFor="full_name"
+                        className="text-sm font-semibold text-gray-900"
+                      >
+                        Product Quantity
+                      </label>
+                      <input
+                        onChange={(e) =>
+                          setData({ ...data, productQuantity: e.target.value })
                         }
                         type="text"
                         name="full_name"

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import ConfirmOverlay from "./ConfirmOverlay";
 
@@ -25,19 +25,25 @@ const Orders = () => {
                       scope="col"
                       className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
                     >
-                      Name
+                      Order ID
                     </th>
                     <th
                       scope="col"
                       className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
                     >
-                      Age
+                      Order date
                     </th>
                     <th
                       scope="col"
                       className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
                     >
-                      Address
+                      Placed by
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
+                    >
+                      Order amount
                     </th>
                     <th
                       scope="col"
@@ -50,68 +56,16 @@ const Orders = () => {
                 <tbody className="divide-y divide-gray-200 ">
                   <tr className="hover:bg-gray-100 ">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
-                      John Brown
+                      d1f3bh413d54bh
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      45
+                      25 Feb 2024
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      New York No. 1 Lake Park
-                    </td>
-                    <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
-                      <button
-                        type="button"
-                        
-                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                      >
-                        Confirm
-                      </button>
-                      <button
-                        type="button"
-                        onClick={handledeletebuttonclick}
-                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-
-                  <tr className="hover:bg-gray-100">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
-                      Jim Green
+                      John Cena
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      27
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                      London No. 1 Lake Park
-                    </td>
-                    <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
-                      <button
-                        type="button"
-                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                      >
-                        Confirm
-                      </button>
-                      <button
-                        type="button"
-                        onClick={handledeletebuttonclick}
-                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-
-                  <tr className="hover:bg-gray-100">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
-                      Joe Black
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      31
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      Sidney No. 1 Lake Park
+                      69
                     </td>
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
@@ -132,13 +86,16 @@ const Orders = () => {
 
                   <tr className="hover:bg-gray-100 ">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
-                      Edward King
+                      d1f3bh413d54bh
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      16
+                      25 Feb 2024
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      LA No. 1 Lake Park
+                      John Cena
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
+                      69
                     </td>
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
@@ -159,13 +116,76 @@ const Orders = () => {
 
                   <tr className="hover:bg-gray-100 ">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
-                      Jim Red
+                      d1f3bh413d54bh
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      45
+                      25 Feb 2024
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      Melbourne No. 1 Lake Park
+                      John Cena
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
+                      69
+                    </td>
+                    <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
+                      <button
+                        type="button"
+                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
+                      >
+                        Confirm
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handledeletebuttonclick}
+                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr className="hover:bg-gray-100 ">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      d1f3bh413d54bh
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
+                      25 Feb 2024
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
+                      John Cena
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
+                      69
+                    </td>
+                    <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
+                      <button
+                        type="button"
+                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
+                      >
+                        Confirm
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handledeletebuttonclick}
+                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr className="hover:bg-gray-100 ">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                      d1f3bh413d54bh
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
+                      25 Feb 2024
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
+                      John Cena
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
+                      69
                     </td>
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                       <button
@@ -189,7 +209,9 @@ const Orders = () => {
           </div>
         </div>
       </div>
-      {showOverlay && <ConfirmOverlay handleCloseOverlay={handleCloseOverlay} />}
+      {showOverlay && (
+        <ConfirmOverlay handleCloseOverlay={handleCloseOverlay} />
+      )}
     </div>
   );
 };

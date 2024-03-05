@@ -65,7 +65,7 @@ export default function DeleteOverlay(props) {
                           as="h3"
                           className="text-base font-semibold leading-6 text-gray-900"
                         >
-                          Are you sure you want to deactivate this user ?
+                          Are you sure you want to delete this product ?
                         </Dialog.Title>
                         {/* <div className="mt-2">
                           <div className="">

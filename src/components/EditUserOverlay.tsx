@@ -91,7 +91,7 @@ export default function EditoUserOerlay(props) {
                             <input
                               id="LoggingEmailAddress"
                               className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
-                              type="email"
+                              type="text"
                               onChange={(e) =>
                                 setData({ ...data, phone: e.target.value })
                               }
@@ -107,7 +107,7 @@ export default function EditoUserOerlay(props) {
                             <input
                               id="LoggingEmailAddress"
                               className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
-                              type="email"
+                              type="text"
                               onChange={(e) =>
                                 setData({ ...data, address: e.target.value })
                               }

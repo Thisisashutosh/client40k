@@ -76,7 +76,7 @@ export default function Editoverlay(props) {
                             <input
                               id="LoggingEmailAddress"
                               className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
-                              type="email"
+                              type="text"
                               onChange={(e) =>
                                 setData({ ...data, name: e.target.value })
                               }
@@ -92,7 +92,7 @@ export default function Editoverlay(props) {
                             <input
                               id="LoggingEmailAddress"
                               className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
-                              type="email"
+                              type="text"
                               onChange={(e) =>
                                 setData({ ...data, type: e.target.value })
                               }
@@ -108,7 +108,7 @@ export default function Editoverlay(props) {
                             <input
                               id="LoggingEmailAddress"
                               className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
-                              type="email"
+                              type="text"
                               onChange={(e) =>
                                 setData({ ...data, code: e.target.value })
                               }
@@ -124,7 +124,7 @@ export default function Editoverlay(props) {
                             <input
                               id="LoggingEmailAddress"
                               className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
-                              type="email"
+                              type="text"
                               onChange={(e) =>
                                 setData({ ...data, quantity: e.target.value })
                               }
@@ -140,7 +140,7 @@ export default function Editoverlay(props) {
                             <input
                               id="LoggingEmailAddress"
                               className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
-                              type="email"
+                              type="text"
                               onChange={(e) =>
                                 setData({ ...data, batchID: e.target.value })
                               }

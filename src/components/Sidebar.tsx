@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 const Sidebar = () => {
   const [userData, setUserData] = useState(null);
   const [googleUserData, setGoogleUserData] = useState(null);
+  const [renderKey, setRenderKey] = useState(0); // State variable to trigger re-render
   useEffect(() => {
     const userJSON = localStorage.getItem("user") || "";
     const googleUserJSON = localStorage.getItem("googleuser") || "";
@@ -17,6 +18,22 @@ const Sidebar = () => {
       }
     }
   }, []);
+
+  const handlesignout = () => {
+    console.log("signing out");
+    if (localStorage.getItem("user")) {
+      localStorage.removeItem("user");
+      console.log("User data cleared from local storage");
+    } else if (localStorage.getItem("googleuser")) {
+      localStorage.removeItem("googleuser");
+      console.log("Google user data cleared from local storage");
+    } else {
+      console.log("No data found in local storage");
+    }
+
+    // Update the state to trigger re-render
+    setRenderKey(prevKey => prevKey + 1);
+  };
 
   const logout = async () => {};
   return (
@@ -289,7 +306,10 @@ const Sidebar = () => {
           </nav>
 
           {userData ? (
-            <a href="/login" className="flex items-center px-4 -mx-2">
+            <a
+              onClick={handlesignout}
+              className="flex items-center px-4 -mx-2 cursor-pointer"
+            >
               <img
                 className="object-cover mx-2 rounded-full h-9 w-9"
                 src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
@@ -300,7 +320,10 @@ const Sidebar = () => {
               </span>
             </a>
           ) : googleUserData ? (
-            <a href="/login" className="flex items-center px-4 -mx-2">
+            <a
+              onClick={handlesignout}
+              className="flex items-center px-4 -mx-2 cursor-pointer"
+            >
               <img
                 className="object-cover mx-2 rounded-full h-9 w-9"
                 src={googleUserData.photoURL}
