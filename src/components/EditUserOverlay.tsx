@@ -11,7 +11,7 @@ export default function EditoUserOerlay(props) {
   const [data, setData] = useState({
     email: "",
     phone: "",
-    address: "",
+    name: "",
     usertype: "",
   });
 
@@ -102,14 +102,14 @@ export default function EditoUserOerlay(props) {
                               className="block mb-2 text-sm font-medium text-gray-600 "
                               htmlFor="LoggingEmailAddress"
                             >
-                              Address
+                              Name
                             </label>
                             <input
                               id="LoggingEmailAddress"
                               className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
                               type="text"
                               onChange={(e) =>
-                                setData({ ...data, address: e.target.value })
+                                setData({ ...data, name: e.target.value })
                               }
                             />
                           </div>

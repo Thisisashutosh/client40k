@@ -1,24 +1,37 @@
 "use client";
 
+import axios from "axios";
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 const Form = () => {
   const [data, setData] = useState({
-    id: "",
+    userId: "",
     name: "",
     email: "",
-    phone: "",
+    phoneNumber: "",
     desc: "",
     address: "",
-    password: "",
     usertype: "",
   });
 
-  const handleuserselection = (e: any) => {
-    setData({ ...data, usertype: e.target.value });
-  };
+  const handlesubmit = async () => {
+    console.log({ ...data });
+    await axios
+      .post("http://localhost:8080/user/adduser", data)
+      // .post(`${process.env.NEXT_APP_SERVER_URL}/user/adduser`, data)
 
+      .then((res) => {
+        if (res.data.status === "error") toast.error(res.data.message);
+        else {
+          console.log(res.data);
+          toast.success(res.data.message)
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div>
       <div className="">
@@ -40,7 +53,7 @@ const Form = () => {
                       </label>
                       <input
                         onChange={(e) =>
-                          setData({ ...data, id: e.target.value })
+                          setData({ ...data, userId: e.target.value })
                         }
                         type="text"
                         name="full_name"
@@ -97,7 +110,7 @@ const Form = () => {
                       </label>
                       <input
                         onChange={(e) =>
-                          setData({ ...data, phone: e.target.value })
+                          setData({ ...data, phoneNumber: e.target.value })
                         }
                         type="text"
                         name="biometric"
@@ -128,7 +141,7 @@ const Form = () => {
                       />
                     </div>
 
-                    <div className="md:col-span-2">
+                    <div className="md:col-span-5">
                       <label
                         htmlFor="room"
                         className="text-sm font-semibold text-gray-900"
@@ -147,7 +160,7 @@ const Form = () => {
                       />
                     </div>
 
-                    <div className="md:col-span-3">
+                    {/* <div className="md:col-span-3">
                       <label
                         htmlFor="month"
                         className="text-sm font-semibold text-gray-900"
@@ -164,7 +177,7 @@ const Form = () => {
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                         // value=""
                       />
-                    </div>
+                    </div> */}
 
                     <div className="md:col-span-5 text-right">
                       <div className="flex items-start justify-between mt-5">
@@ -180,25 +193,28 @@ const Form = () => {
                               fill-rule="nonzero"
                             />
                           </svg>
-                          <select className="border text-sm font-semibold text-gray-900 border-gray-300 rounded h-10 pl-5 pr-10 bg-gray-50 appearance-none">
-                            <option onClick={handleuserselection}>
-                              User Type
-                            </option>
-                            <option onClick={handleuserselection}>Admin</option>
-                            <option onClick={handleuserselection}>
-                              Packaging
-                            </option>
-                            <option onClick={handleuserselection}>Rider</option>
-                            <option onClick={handleuserselection}>
-                              Finance
-                            </option>
-                            <option onClick={handleuserselection}>
-                              Super Admin
-                            </option>
+                          <select
+                            onChange={(e) =>
+                              setData({
+                                ...data,
+                                usertype: (e.target as HTMLSelectElement).value,
+                              })
+                            }
+                            className="border text-sm font-semibold text-gray-900 border-gray-300 rounded h-10 pl-5 pr-10 bg-gray-50 appearance-none"
+                          >
+                            <option>User Type</option>
+                            <option>ADMIN</option>
+                            <option>PACKAGING</option>
+                            <option>RIDER</option>
+                            <option>FINANCE</option>
+                            <option>SUPER_ADMIN</option>
                           </select>
                         </div>
                         {/* <Dropdown data={data} setData={setData} toast={toast} /> */}
-                        <button className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300 transform text-white font-bold py-2 px-4 rounded">
+                        <button
+                          onClick={handlesubmit}
+                          className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300 transform text-white font-bold py-2 px-4 rounded"
+                        >
                           Submit
                         </button>
                       </div>
