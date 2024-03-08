@@ -9,6 +9,7 @@ const Userlist = () => {
   const [showDeactivateOverlay, setShowDeactivateOverlay] = useState(false);
   const [showEditOverlay, setShowEditOverlay] = useState(false);
   const [data, setData] = useState([{}]);
+  const [userId, setUserId] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +18,9 @@ const Userlist = () => {
         if (response.data.status === "error") {
           toast.error("Error fetching users");
         } else {
-          setData(response.data);
+          //filtering the active users to show only the active users
+          const activeUsers = response.data.filter(user => user.isActive);
+          setData(activeUsers);
         }
       } catch (error) {
         console.error("Error fetching user data:", error);
@@ -27,14 +30,16 @@ const Userlist = () => {
     fetchData();
   }, []);
 
-  const handleDeactivatebuttonclick = () => {
+  const handleDeactivatebuttonclick = (userId: any) => {
+    setUserId(userId);
     setShowDeactivateOverlay(true);
   };
   const handleDeactivateCloseOverlay = () => {
     setShowDeactivateOverlay(false);
   };
 
-  const handleEditbuttonclick = () => {
+  const handleEditbuttonclick = (userId: any) => {
+    setUserId(userId);
     setShowEditOverlay(true);
   };
 
@@ -93,14 +98,16 @@ const Userlist = () => {
                         <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
                           <button
                             type="button"
-                            onClick={handleEditbuttonclick}
+                            onClick={() => handleEditbuttonclick(user.userId)}
                             className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                           >
                             Edit
                           </button>
                           <button
                             type="button"
-                            onClick={handleDeactivatebuttonclick}
+                            onClick={() =>
+                              handleDeactivatebuttonclick(user.userId)
+                            }
                             className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
                           >
                             Deactivate
@@ -117,10 +124,14 @@ const Userlist = () => {
         {showDeactivateOverlay && (
           <DeactivateOverlay
             handleCloseOverlay={handleDeactivateCloseOverlay}
+            userId={userId}
           />
         )}
         {showEditOverlay && (
-          <EditUserOverlay handleCloseOverlay={handleEditCloseOverlay} />
+          <EditUserOverlay
+            handleCloseOverlay={handleEditCloseOverlay}
+            userId={userId}
+          />
         )}
       </div>
     </>

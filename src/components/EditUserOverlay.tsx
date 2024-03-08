@@ -1,9 +1,8 @@
 "use client";
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { auth } from "@/firebase-config";
-import { sendPasswordResetEmail } from "firebase/auth";
 import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
 
 export default function EditoUserOerlay(props) {
   const [open, setOpen] = useState(true);
@@ -12,11 +11,39 @@ export default function EditoUserOerlay(props) {
     email: "",
     phone: "",
     name: "",
-    usertype: "",
+    userType: "",
+    userId: "",
   });
 
-  const handleusereditform = (e: any) => {
+  const handleusereditform = async (e: any) => {
+    e.preventDefault();
+    // setData({...data,userId:props.userId})
+    const updatedData = { ...data, userId: props.userId };
+    console.log("userId from editform", props.userId);
     console.log(data);
+
+    try {
+      // Make PUT request to the backend
+      const response = await axios.put(
+        "http://localhost:8080/user/edituser",
+        updatedData
+      );
+
+      // Handle response
+      if (response.data.status === "success") {
+        console.log("User details updated successfully:", response.data.user);
+        toast.success(response.data.message);
+        // Handle success scenario
+      } else {
+        console.error("Error:", response.data.message);
+        toast.error(response.data.message);
+        // Handle error scenario
+      }
+    } catch (error: any) {
+      console.error("Error:", error.message);
+      toast.error(error.message);
+      // Handle error scenario
+    }
   };
 
   return (
@@ -130,17 +157,17 @@ export default function EditoUserOerlay(props) {
                               onChange={(e) =>
                                 setData({
                                   ...data,
-                                  usertype: (e.target as HTMLSelectElement)
+                                  userType: (e.target as HTMLSelectElement)
                                     .value,
                                 })
                               }
                             >
                               <option>User Type</option>
-                              <option>Admin</option>
-                              <option>Packaging</option>
-                              <option>Rider</option>
-                              <option>Finance</option>
-                              <option>Super Admin</option>
+                              <option>ADMIN</option>
+                              <option>PACKAGING</option>
+                              <option>RIDER</option>
+                              <option>FINANCE</option>
+                              <option>SUPER_ADMIN</option>
                             </select>
                           </div>
                         </div>

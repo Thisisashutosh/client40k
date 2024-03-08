@@ -1,24 +1,38 @@
 "use client";
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { auth } from "@/firebase-config";
-import { sendPasswordResetEmail } from "firebase/auth";
 import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
 
 export default function DeactivateOverlay(props) {
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
-  const [email, setEmail] = useState("");
 
-  const handleResetPassword = async () => {
+  const handledeactivate = async (e: any) => {
+    e.preventDefault();
+    const userId = props.userId
+    console.log(userId)
+
     try {
-      await sendPasswordResetEmail(auth, email);
-      // Password reset email sent!
-      toast.success("Password reset email sent! Kindly check your inbox");
+      // Make PUT request to deactivate user
+      const response = await axios.put("http://localhost:8080/user/deactivateuser", {
+        userId,
+      });
+
+      // Handle response
+      if (response.data.status === "success") {
+        console.log("User deactivated successfully:", response.data.user);
+        toast.success(response.data.message);
+        // Handle success scenario
+      } else {
+        console.error("Error:", response.data.message);
+        toast.error(response.data.message);
+        // Handle error scenario
+      }
     } catch (error: any) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      toast.error(errorMessage);
+      console.error("Error:", error.message);
+      toast.error(error.message);
+      // Handle error scenario
     }
   };
 
@@ -90,7 +104,7 @@ export default function DeactivateOverlay(props) {
                     <button
                       type="button"
                       className=" px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
-                      onClick={handleResetPassword}
+                      onClick={handledeactivate}
                     >
                       Yes! DEACTIVATE
                     </button>
