@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const Sidebar = () => {
@@ -38,14 +39,14 @@ const Sidebar = () => {
   const logout = async () => {};
   return (
     <div>
-      <aside className="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
-        <a href="/">
-          <img
-            className="w-auto h-6 sm:h-7"
-            src="https://merakiui.com/images/logo.svg"
+      <aside className="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
+      {/* <a className="flex items-center justify-center" href="/">
+          <Image
+            width={50} height={50}
+            src="mdw.svg"
             alt=""
           />
-        </a>
+        </a> */}
 
         {/* <div className="relative mt-6">
         <span className="absolute inset-y-0 left-0 flex items-center pl-3">

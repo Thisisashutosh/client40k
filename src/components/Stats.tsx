@@ -37,7 +37,7 @@ const Stats = () => {
               </svg>
             </div>
             <p className="text-sm font-medium text-gray-500">Vistors</p>
-            <p className="text-4xl font-medium text-gray-800 overflow-hidden">24,430</p>
+            <p className="text-4xl font-medium text-gray-800 overflow-hidden">0</p>
             <span className="float-right rounded-full bg-rose-100 px-1 text-sm font-medium text-rose-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +53,7 @@ const Stats = () => {
                   d="M17 13l-5 5m0 0l-5-5m5 5V6"
                 />
               </svg>
-              3%
+              0%
             </span>
           </div>
 
@@ -115,7 +115,7 @@ const Stats = () => {
               </svg>
             </div>
             <p className="text-sm font-medium text-gray-500">Customers</p>
-            <p className="text-4xl font-medium text-gray-800 overflow-hidden">3,405</p>
+            <p className="text-4xl font-medium text-gray-800 overflow-hidden">0</p>
             <span className="float-right rounded-full bg-emerald-100 px-1 text-sm font-medium text-emerald-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +131,7 @@ const Stats = () => {
                   d="M7 11l5-5m0 0l5 5m-5-5v12"
                 />
               </svg>
-              23%
+              0%
             </span>
           </div>
 
@@ -174,7 +174,7 @@ const Stats = () => {
               </svg>
             </div>
             <p className="text-sm font-medium text-gray-500">Daily Sales</p>
-            <p className="text-4xl font-medium text-gray-800 overflow-hidden">$405</p>
+            <p className="text-4xl font-medium text-gray-800 overflow-hidden">₹0</p>
             <span className="float-right rounded-full bg-emerald-100 px-1 text-sm font-medium text-emerald-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -190,7 +190,7 @@ const Stats = () => {
                   d="M7 11l5-5m0 0l5 5m-5-5v12"
                 />
               </svg>
-              13%
+              0%
             </span>
           </div>
         </div>

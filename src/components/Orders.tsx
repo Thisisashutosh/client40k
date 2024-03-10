@@ -62,7 +62,7 @@ const Orders = () => {
                       25 Feb 2024
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      John Cena
+                      John Doe
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                       69
@@ -92,7 +92,7 @@ const Orders = () => {
                       25 Feb 2024
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      John Cena
+                      John Doe
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                       69
@@ -122,7 +122,7 @@ const Orders = () => {
                       25 Feb 2024
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      John Cena
+                      John Doe
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                       69
@@ -152,7 +152,7 @@ const Orders = () => {
                       25 Feb 2024
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      John Cena
+                      John Doe
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                       69
@@ -182,7 +182,7 @@ const Orders = () => {
                       25 Feb 2024
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                      John Cena
+                      John Doe
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                       69
