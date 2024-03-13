@@ -4,7 +4,7 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import Loading from "./Loading";
 import ActivateUserOverlay from "./ActivateUserOverlay";
-import DeleteOverlay from "./DeleteOverlay";
+import DeleteUserOverlay from "./DeleteUserOverlay";
 
 const Deactivateduserlist = () => {
   const [showDeactivateOverlay, setShowDeactivateOverlay] = useState(false);
@@ -139,7 +139,7 @@ const Deactivateduserlist = () => {
           />
         )}
         {showEditOverlay && (
-          <DeleteOverlay
+          <DeleteUserOverlay
             handleCloseOverlay={handleEditCloseOverlay}
             userId={userId}
           />
