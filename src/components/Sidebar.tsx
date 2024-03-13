@@ -33,14 +33,14 @@ const Sidebar = () => {
     }
 
     // Update the state to trigger re-render
-    setRenderKey(prevKey => prevKey + 1);
+    setRenderKey((prevKey) => prevKey + 1);
   };
 
   const logout = async () => {};
   return (
     <div>
       <aside className="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
-      {/* <a className="flex items-center justify-center" href="/">
+        {/* <a className="flex items-center justify-center" href="/">
           <Image
             width={50} height={50}
             src="mdw.svg"
@@ -174,6 +174,50 @@ const Sidebar = () => {
               </svg>
 
               <span className="mx-4 font-medium">User List</span>
+            </a>
+
+            <a
+              className="flex items-center px-4 py-2 mt-5 text-gray-700 transition-colors duration-300 transform rounded-md dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+              href="/deactivateduser"
+            >
+              <svg
+                width="20px"
+                height="20px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  {" "}
+                  <circle
+                    cx="10"
+                    cy="6"
+                    r="4"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
+                  ></circle>{" "}
+                  <path
+                    d="M20.4141 11.4142L18.9999 10M18.9999 10L17.5857 8.5858M18.9999 10L20.4141 8.58578M18.9999 10L17.5857 11.4142"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  ></path>{" "}
+                  <path
+                    d="M17.9975 18C18 17.8358 18 17.669 18 17.5C18 15.0147 14.4183 13 10 13C5.58172 13 2 15.0147 2 17.5C2 19.9853 2 22 10 22C12.231 22 13.8398 21.8433 15 21.5634"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  ></path>{" "}
+                </g>
+              </svg>
+
+              <span className="mx-4 font-medium">Deactivated users</span>
             </a>
 
             <hr className="my-6 border-gray-200 dark:border-gray-600" />
