@@ -7,7 +7,7 @@ export default function DeleteUserOverlay(props) {
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
 
-  const handleResetPassword = () => {};
+  const handleDeleteuser = () => {};
 
   return (
     <>
@@ -77,7 +77,7 @@ export default function DeleteUserOverlay(props) {
                     <button
                       type="button"
                       className=" px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
-                      onClick={handleResetPassword}
+                      onClick={handleDeleteuser}
                     >
                       Yes! DELETE
                     </button>

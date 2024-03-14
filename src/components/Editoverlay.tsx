@@ -4,20 +4,47 @@ import { Dialog, Transition } from "@headlessui/react";
 import { auth } from "@/firebase-config";
 import { sendPasswordResetEmail } from "firebase/auth";
 import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
 
 export default function Editoverlay(props) {
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
   const [data, setData] = useState({
-    name: "",
-    type: "",
-    code: "",
-    quantity: "",
-    batchID:"",
+    productName: "",
+    productType: "",
+    productCode: "",
+    productQuantity: "",
+    productBatchId:"",
+    productId:"",
   });
 
-  const handleproducteditform = () => {
-   console.log(data)
+  const handleproducteditform = async (e:any) => {
+    e.preventDefault();
+    // setData({...data,userId:props.userId})
+    const updatedData = { ...data, productId: props.productId };
+
+    try {
+      // Make PUT request to the backend
+      const response = await axios.put(
+        "http://localhost:8080/product/editproduct",
+        updatedData
+      );
+
+      // Handle response
+      if (response.data.status === "success") {
+        console.log("Product details updated successfully");
+        toast.success(response.data.message);
+        // Handle success scenario
+      } else {
+        console.error("Error:", response.data.message);
+        toast.error(response.data.message);
+        // Handle error scenario
+      }
+    } catch (error: any) {
+      console.error("Error:", error.message);
+      toast.error(error.message);
+      // Handle error scenario
+    }
   };
 
   return (
@@ -78,7 +105,7 @@ export default function Editoverlay(props) {
                               className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
                               type="text"
                               onChange={(e) =>
-                                setData({ ...data, name: e.target.value })
+                                setData({ ...data, productName: e.target.value })
                               }
                             />
                           </div>
@@ -94,7 +121,7 @@ export default function Editoverlay(props) {
                               className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
                               type="text"
                               onChange={(e) =>
-                                setData({ ...data, type: e.target.value })
+                                setData({ ...data, productType: e.target.value })
                               }
                             />
                           </div>
@@ -110,7 +137,7 @@ export default function Editoverlay(props) {
                               className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
                               type="text"
                               onChange={(e) =>
-                                setData({ ...data, code: e.target.value })
+                                setData({ ...data, productCode: e.target.value })
                               }
                             />
                           </div>
@@ -126,7 +153,7 @@ export default function Editoverlay(props) {
                               className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
                               type="text"
                               onChange={(e) =>
-                                setData({ ...data, quantity: e.target.value })
+                                setData({ ...data, productQuantity: e.target.value })
                               }
                             />
                           </div>
@@ -142,7 +169,7 @@ export default function Editoverlay(props) {
                               className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg "
                               type="text"
                               onChange={(e) =>
-                                setData({ ...data, batchID: e.target.value })
+                                setData({ ...data, productBatchId: e.target.value })
                               }
                             />
                           </div>

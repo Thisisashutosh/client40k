@@ -1,25 +1,27 @@
 "use client";
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { auth } from "@/firebase-config";
-import { sendPasswordResetEmail } from "firebase/auth";
 import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
 
-export default function DeleteOverlay(props) {
+export default function DeleteOverlay(props:any) {
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
-  const [email, setEmail] = useState("");
+  const [productId, setProductId] = useState("");
 
-  const handleResetPassword = async () => {
+  const handleDeleteProduct = async () => {
     try {
-      await sendPasswordResetEmail(auth, email);
-      // Password reset email sent!
-      toast.success("Password reset email sent! Kindly check your inbox");
-    } catch (error: any) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      toast.error(errorMessage);
-    }
+      setProductId(props.productId);
+      const response = await axios.delete(
+        `http://localhost:8080/product/deleteproduct/${productId}`
+      );
+
+      if (response.data.status === "success") {
+        toast.success(response.data.message);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {}
   };
 
   return (
@@ -90,7 +92,7 @@ export default function DeleteOverlay(props) {
                     <button
                       type="button"
                       className=" px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
-                      onClick={handleResetPassword}
+                      onClick={handleDeleteProduct}
                     >
                       Yes! DELETE
                     </button>

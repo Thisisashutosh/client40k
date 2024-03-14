@@ -1,5 +1,6 @@
 "use client";
 
+import axios from "axios";
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -7,11 +8,28 @@ const Addproduct = () => {
   const [data, setData] = useState({
     productId: "",
     productName: "",
-    productQuantity:"",
+    productQuantity: "",
     productType: "",
     productCode: "",
-    batchId: "",
+    productBatchId: "",
   });
+
+  const handlesubmit = async () => {
+    await axios
+      .post("http://localhost:8080/product/addproducts", data)
+      // .post(`${process.env.NEXT_APP_SERVER_URL}/user/adduser`, data)
+
+      .then((res) => {
+        if (res.data.status === "error") toast.error(res.data.message);
+        else {
+          console.log(res.data);
+          toast.success(res.data.message);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div>
@@ -129,7 +147,7 @@ const Addproduct = () => {
                       </label>
                       <input
                         onChange={(e) =>
-                          setData({ ...data, batchId: e.target.value })
+                          setData({ ...data, productBatchId: e.target.value })
                         }
                         type="text"
                         name="residing_building"
@@ -157,7 +175,10 @@ const Addproduct = () => {
                          
                         </div> */}
                         {/* <Dropdown data={data} setData={setData} toast={toast} /> */}
-                        <button className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300 transform text-white font-bold py-2 px-4 rounded">
+                        <button
+                          onClick={handlesubmit}
+                          className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300 transform text-white font-bold py-2 px-4 rounded"
+                        >
                           Submit
                         </button>
                       </div>

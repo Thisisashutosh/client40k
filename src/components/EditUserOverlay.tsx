@@ -31,7 +31,7 @@ export default function EditoUserOerlay(props) {
 
       // Handle response
       if (response.data.status === "success") {
-        console.log("User details updated successfully:", response.data.user);
+        console.log("User details updated successfully");
         toast.success(response.data.message);
         // Handle success scenario
       } else {
