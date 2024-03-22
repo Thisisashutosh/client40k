@@ -13,7 +13,7 @@ export default function DeleteOverlay(props:any) {
     try {
       setProductId(props.productId);
       const response = await axios.delete(
-        `http://localhost:8080/product/deleteproduct/${productId}`
+        `http://localhost:8080/product/deleteproduct/${props.productId}`
       );
 
       if (response.data.status === "success") {

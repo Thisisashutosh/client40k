@@ -6,7 +6,7 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 
-export default function Editoverlay(props) {
+export default function Editoverlay(props:any) {
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
   const [data, setData] = useState({

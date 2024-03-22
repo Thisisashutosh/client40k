@@ -5,7 +5,7 @@ import { auth } from "@/firebase-config";
 import { sendPasswordResetEmail } from "firebase/auth";
 import toast, { Toaster } from "react-hot-toast";
 
-export default function ConfirmOverlay(props) {
+export default function ConfirmOverlay(props:any) {
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
   const [email, setEmail] = useState("");

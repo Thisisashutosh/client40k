@@ -2,9 +2,8 @@
 import React, { useState } from "react";
 import ConfirmOverlay from "./ConfirmOverlay";
 
-const Orders = () => {
+const Previousrders = () => {
   const [showOverlay, setShowOverlay] = useState(false);
-  const [confirmed, setConfirmed] = useState(false); //remember to remove this usestate approach and follow the database update approach because state variable will be set to default after refresh
 
   const handledeletebuttonclick = () => {
     setShowOverlay(true);
@@ -13,12 +12,6 @@ const Orders = () => {
   const handleCloseOverlay = () => {
     setShowOverlay(false);
   };
-
-  const handleconfirm = () => {
-    setConfirmed(true);
-    //now every order will get out for delivery, when orders api will be made and implemented, i have to make changes according to order Id.
-  };
-  const handleoutfordelivery = () => {};
   return (
     <div>
       <div className="flex flex-col">
@@ -75,23 +68,12 @@ const Orders = () => {
                       69
                     </td>
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
-                      {!confirmed ? (
-                        <button
-                          type="button"
-                          onClick={handleconfirm}
-                          className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                        >
-                          Confirm
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          onClick={handleoutfordelivery}
-                          className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                        >
-                          Out for delivery
-                        </button>
-                      )}
+                      <button
+                        type="button"
+                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
+                      >
+                        Confirm
+                      </button>
                       <button
                         type="button"
                         onClick={handledeletebuttonclick}
@@ -116,23 +98,12 @@ const Orders = () => {
                       69
                     </td>
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
-                      {!confirmed ? (
-                        <button
-                          type="button"
-                          onClick={handleconfirm}
-                          className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                        >
-                          Confirm
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          onClick={handleoutfordelivery}
-                          className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                        >
-                          Out for delivery
-                        </button>
-                      )}
+                      <button
+                        type="button"
+                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
+                      >
+                        Confirm
+                      </button>
                       <button
                         type="button"
                         onClick={handledeletebuttonclick}
@@ -157,23 +128,12 @@ const Orders = () => {
                       69
                     </td>
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
-                      {!confirmed ? (
-                        <button
-                          type="button"
-                          onClick={handleconfirm}
-                          className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                        >
-                          Confirm
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          onClick={handleoutfordelivery}
-                          className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                        >
-                          Out for delivery
-                        </button>
-                      )}
+                      <button
+                        type="button"
+                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
+                      >
+                        Confirm
+                      </button>
                       <button
                         type="button"
                         onClick={handledeletebuttonclick}
@@ -198,23 +158,12 @@ const Orders = () => {
                       69
                     </td>
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
-                      {!confirmed ? (
-                        <button
-                          type="button"
-                          onClick={handleconfirm}
-                          className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                        >
-                          Confirm
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          onClick={handleoutfordelivery}
-                          className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                        >
-                          Out for delivery
-                        </button>
-                      )}
+                      <button
+                        type="button"
+                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
+                      >
+                        Confirm
+                      </button>
                       <button
                         type="button"
                         onClick={handledeletebuttonclick}
@@ -239,23 +188,12 @@ const Orders = () => {
                       69
                     </td>
                     <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
-                      {!confirmed ? (
-                        <button
-                          type="button"
-                          onClick={handleconfirm}
-                          className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                        >
-                          Confirm
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          onClick={handleoutfordelivery}
-                          className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                        >
-                          Out for delivery
-                        </button>
-                      )}
+                      <button
+                        type="button"
+                        className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
+                      >
+                        Confirm
+                      </button>
                       <button
                         type="button"
                         onClick={handledeletebuttonclick}
@@ -278,4 +216,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default Previousrders;

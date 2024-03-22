@@ -4,7 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 
-export default function EditoUserOerlay(props) {
+export default function EditoUserOerlay(props:any) {
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
   const [data, setData] = useState({

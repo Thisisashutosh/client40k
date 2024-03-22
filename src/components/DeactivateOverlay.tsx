@@ -4,7 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 
-export default function DeactivateOverlay(props) {
+export default function DeactivateOverlay(props:any) {
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
 
