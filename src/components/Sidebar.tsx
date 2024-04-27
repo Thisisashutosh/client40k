@@ -39,7 +39,7 @@ const Sidebar = () => {
   const logout = async () => {};
   return (
     <div>
-      <aside className="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
+      <aside className="flex flex-col w-64 h-screen px-4 overflow-y-auto border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
         {/* <a className="flex items-center justify-center" href="/">
           <Image
             width={50} height={50}
@@ -384,12 +384,170 @@ const Sidebar = () => {
 
               <span className="mx-4 font-medium">Previous Orders</span>
             </a>
+
+            <hr className="my-6 border-gray-200 dark:border-gray-600" />
+
+            <a
+              className="flex items-center px-4 py-2 mt-5 text-gray-700 transition-colors duration-300 transform rounded-md dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+              href="/delivery"
+            >
+              <svg
+                width="20px"
+                height="20px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  {" "}
+                  <circle
+                    cx="15"
+                    cy="4"
+                    r="2"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
+                  ></circle>{" "}
+                  <circle
+                    cx="6"
+                    cy="18"
+                    r="3"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
+                  ></circle>{" "}
+                  <circle
+                    cx="18"
+                    cy="18"
+                    r="3"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
+                  ></circle>{" "}
+                  <path
+                    d="M18.5 9.99951H16.4744C15.2534 9.99951 14.6429 9.99951 14.0934 9.77292C13.544 9.54633 13.111 9.11597 12.2449 8.25524L11.6676 7.68145C10.8828 6.90152 10.4904 6.51155 10.0257 6.5539C9.56102 6.59624 9.24559 7.05071 8.61471 7.95964M12 17.9995L12.0572 17.6411C12.2918 16.1715 12.4091 15.4368 12.081 14.8369C11.7529 14.237 11.0709 13.9394 9.70695 13.3443L8.23125 12.7004C7.1987 12.2498 6.68242 12.0246 6.55348 11.5698C6.50262 11.3904 6.5218 11.2098 6.60313 11"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  ></path>{" "}
+                </g>
+              </svg>
+
+              <span className="mx-4 font-medium">Delivery</span>
+            </a>
+
+            <a
+              className="flex items-center px-4 py-2 mt-5 text-gray-700 transition-colors duration-300 transform rounded-md dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+              href="/packing"
+            >
+              <svg
+                width="20px"
+                height="20px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  {" "}
+                  <path
+                    d="M9.5 2C6.67157 2 5.25736 2 4.37868 2.87868C3.5 3.75736 3.5 5.17157 3.5 8V11C3.5 12.8856 3.5 13.8284 4.08579 14.4142C4.67157 15 5.61438 15 7.5 15H16.5C18.3856 15 19.3284 15 19.9142 14.4142C20.5 13.8284 20.5 12.8856 20.5 11V8C20.5 5.17157 20.5 3.75736 19.6213 2.87868C18.7426 2 17.3284 2 14.5 2H14"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  ></path>{" "}
+                  <path
+                    d="M12 22H5C3.34315 22 2 20.6569 2 19V18C2 17.4477 2.44772 17 3 17H7.33333C7.76607 17 8.18714 17.1404 8.53333 17.4L9.46667 18.1C9.81286 18.3596 10.2339 18.5 10.6667 18.5H13.3333C13.7661 18.5 14.1871 18.3596 14.5333 18.1L15.4667 17.4C15.8129 17.1404 16.2339 17 16.6667 17H21C21.5523 17 22 17.4477 22 18V19C22 20.6569 20.6569 22 19 22H16"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  ></path>{" "}
+                </g>
+              </svg>
+
+              <span className="mx-4 font-medium">Packing</span>
+            </a>
+
+            <a
+              className="flex items-center px-4 py-2 mt-5 text-gray-700 transition-colors duration-300 transform rounded-md dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+              href="/paymentlogs"
+            >
+              <svg
+                width="20px"
+                height="20px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  {" "}
+                  <path
+                    d="M10.5 11L17 11"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  ></path>{" "}
+                  <path
+                    d="M7 11H7.5"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  ></path>{" "}
+                  <path
+                    d="M7 7.5H7.5"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  ></path>{" "}
+                  <path
+                    d="M7 14.5H7.5"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  ></path>{" "}
+                  <path
+                    d="M17 14.5H16M10.5 14.5H13.5"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  ></path>{" "}
+                  <path
+                    d="M17 7.5H14M10.5 7.5H11.5"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  ></path>{" "}
+                  <path
+                    d="M21 7V6.37006C21 5.17705 21 4.58055 20.842 4.09946C20.5425 3.18719 19.8468 2.47096 18.9606 2.16261C18.4933 2 17.9139 2 16.755 2H7.24502C6.08614 2 5.50671 2 5.03939 2.16261C4.15322 2.47096 3.45748 3.18719 3.15795 4.09946C3 4.58055 3 5.17705 3 6.37006V15M21 11V20.3742C21 21.2324 20.015 21.6878 19.3919 21.1176C19.0258 20.7826 18.4742 20.7826 18.1081 21.1176L17.625 21.5597C16.9834 22.1468 16.0166 22.1468 15.375 21.5597C14.7334 20.9726 13.7666 20.9726 13.125 21.5597C12.4834 22.1468 11.5166 22.1468 10.875 21.5597C10.2334 20.9726 9.26659 20.9726 8.625 21.5597C7.98341 22.1468 7.01659 22.1468 6.375 21.5597L5.8919 21.1176C5.52583 20.7826 4.97417 20.7826 4.6081 21.1176C3.985 21.6878 3 21.2324 3 20.3742V19"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  ></path>{" "}
+                </g>
+              </svg>
+
+              <span className="mx-4 font-medium">Payment Logs</span>
+            </a>
           </nav>
 
           {userData ? (
             <a
               onClick={handlesignout}
-              className="flex items-center px-4 -mx-2 cursor-pointer"
+              className="flex items-center px-4 -mx-2 mt-10 mb-5 cursor-pointer"
             >
               <img
                 className="object-cover mx-2 rounded-full h-9 w-9"
@@ -403,15 +561,15 @@ const Sidebar = () => {
           ) : googleUserData ? (
             <a
               onClick={handlesignout}
-              className="flex items-center px-4 -mx-2 cursor-pointer"
+              className="flex items-center px-4 -mx-2 mt-10 mb-5 cursor-pointer"
             >
               <img
                 className="object-cover mx-2 rounded-full h-9 w-9"
-                src={googleUserData.photoURL}
+                src={googleUserData.photoURL} 
                 alt="avatar"
               />
               <span className="mx-2 font-medium text-gray-800 dark:text-gray-200">
-                {googleUserData.displayName}
+                {googleUserData.displayName} 
               </span>
             </a>
           ) : (

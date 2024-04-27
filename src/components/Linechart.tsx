@@ -44,7 +44,7 @@ const LineChart = () => {
           pointRadius: 5, // Adjust the point size
         },
       ],
-    });
+    } as any);
     setChartOptions({
       plugins: {
         legend: {
