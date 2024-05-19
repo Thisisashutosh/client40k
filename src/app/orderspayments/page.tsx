@@ -1,5 +1,5 @@
 import Menu from '@/components/Menu'
-import Payment from '@/components/Payment'
+import OrdersPayments from '@/components/OrdersPayments'
 import Sidebar from '@/components/Sidebar'
 import React from 'react'
 
@@ -13,7 +13,7 @@ const page = () => {
         <Menu />
       </div>
       <div className="w-full h-screen md:w-[calc(100vw-16rem)] p-4 mt-5 md:mt-0 md:ml-64 flex flex-col items-center justify-start">
-       <Payment />
+       <OrdersPayments />
       </div>
     </div>
   )

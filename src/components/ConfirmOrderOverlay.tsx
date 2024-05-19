@@ -4,14 +4,13 @@ import { Dialog, Transition } from "@headlessui/react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 
-export default function ConfirmOverlay(props:any) {
+export default function ConfirmOrderOverlay(props:any) {
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
-  const [email, setEmail] = useState("");
 
-  const confirmDelete = async (orderNumber:any) => {
+  const confirmOrder = async (orderNumber:any) => {
     try {
-      const response = await axios.post(`http://localhost:8080/orders/cancelorder/${orderNumber}`);
+      const response = await axios.post(`http://localhost:8080/orders/confirmorder/${orderNumber}`);
       console.log('Order confirmed:', response.data);
       return response.data;
     } catch (error) {
@@ -63,7 +62,7 @@ export default function ConfirmOverlay(props:any) {
                           as="h3"
                           className="text-base font-semibold leading-6 text-gray-900"
                         >
-                          Are you sure you want to delete this order ?
+                          Do you want to confirm this order ?
                         </Dialog.Title>
                         {/* <div className="mt-2">
                           <div className="">
@@ -88,9 +87,9 @@ export default function ConfirmOverlay(props:any) {
                     <button
                       type="button"
                       className=" px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
-                      onClick={()=>confirmDelete(props.orderNumber)}
+                      onClick={()=>confirmOrder(props.orderNumber)}
                     >
-                      Yes! DELETE
+                      Yes! CONFIRM
                     </button>
                     <button
                       type="button"

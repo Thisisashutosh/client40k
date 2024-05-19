@@ -4,10 +4,15 @@ import ConfirmOverlay from "./ConfirmOverlay";
 import Loading from "./Loading";
 import axios from "axios";
 import toast from "react-hot-toast";
+import ConfirmOrderOverlay from "./ConfirmOrderOverlay";
+import ConfirmOfdOverlay from "./ConfirmOfdOverlay";
+import NoData from "./NoData";
 
 const Orders = () => {
-  const [showOverlay, setShowOverlay] = useState(false);
-  const [confirmed, setConfirmed] = useState(false); //remember to remove this usestate approach and follow the database update approach because state variable will be set to default after refresh
+  const [showConfirmOverlay, setShowConfirmOverlay] = useState(false);
+  const [showOfdOverlay, setShowOfdOverlay] = useState(false);
+  const [showDeleteOverlay, setShowDeleteOverlay] = useState(false);
+  const [orderNumber, setOrderNumber] = useState(0);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([{}]);
 
@@ -33,117 +38,154 @@ const Orders = () => {
     fetchData();
   }, []);
 
-  const handledeletebuttonclick = () => {
-    setShowOverlay(true);
+  //overlay handlers for delete button
+  const handledeletebuttonclick = (id: any) => {
+    setOrderNumber(id);
+    setShowDeleteOverlay(true);
+  };
+  const handledeletecloseoverlay = () => {
+    setShowDeleteOverlay(false);
   };
 
-  const handleCloseOverlay = () => {
-    setShowOverlay(false);
+  //overlay handlers for confirm button
+  const handleconfirmbuttonclick = (id: any) => {
+    setOrderNumber(id);
+    setShowConfirmOverlay(true);
+  };
+  const handleconfirmcloseoverlay = () => {
+    setShowConfirmOverlay(false);
   };
 
-  const handleconfirm = () => {
-    setConfirmed(true);
-    //now every order will get out for delivery, when orders api will be made and implemented, i have to make changes according to order Id.
+  //overlay handlers for out for delivery button
+  const handleofdbuttonclick = (id: any) => {
+    setOrderNumber(id);
+    setShowOfdOverlay(true);
   };
-  const handleoutfordelivery = () => {};
+  const handleofdcloseoverlay = () => {
+    setShowOfdOverlay(false);
+  };
+
   return (
-    <div>
-      <div className="flex flex-col">
-        <div className=" overflow-x-auto ">
-          <div className="p-1.5 md:w-[calc(100vw-16rem)] h-screen inline-block align-middle">
-            {!loading ? (
-              <div className="overflow-hidden">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead>
-                    <tr>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
-                      >
-                        Order ID
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
-                      >
-                        Order date
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
-                      >
-                        Placed by
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
-                      >
-                        Order amount
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-medium text-gray-500 uppercase"
-                      >
-                        Action
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200 ">
-                    {data.map((order) => (
-                      <tr className="hover:bg-gray-100 ">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
-                          {order.orderNumber}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                          {order.date}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                          John Doe
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                          69
-                        </td>
-                        <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
-                          {!confirmed ? (
-                            <button
-                              type="button"
-                              onClick={handleconfirm}
-                              className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                            >
-                              Confirm
-                            </button>
-                          ) : (
-                            <button
-                              type="button"
-                              onClick={handleoutfordelivery}
-                              className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                            >
-                              Out for delivery
-                            </button>
-                          )}
-                          <button
-                            type="button"
-                            onClick={handledeletebuttonclick}
-                            className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                          >
-                            Delete
-                          </button>
-                        </td>
+    <>
+      {!data ? <div>
+        <div className="flex flex-col">
+          <div className=" overflow-x-auto ">
+            <div className="p-1.5 md:w-[calc(100vw-16rem)] h-screen inline-block align-middle">
+              {!loading ? (
+                <div className="overflow-hidden">
+                  <table className="min-w-full divide-y divide-gray-200">
+                    <thead>
+                      <tr>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
+                        >
+                          Order ID
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
+                        >
+                          Order date
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
+                        >
+                          Placed by
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
+                        >
+                          Order amount
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-xs font-medium text-gray-500 uppercase"
+                        >
+                          Action
+                        </th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : (
-              <Loading />
-            )}
+                    </thead>
+                    <tbody className="divide-y divide-gray-200 ">
+                      {data.map((order) => (
+                        <tr className="hover:bg-gray-100 ">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                            {order.orderNumber}
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
+                            {order.date}
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
+                            John Doe
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
+                            69
+                          </td>
+                          <td className="px-6 py-4 flex items-center justify-center gap-3 text-end text-sm font-medium">
+                            {order.status === "pending" ? (
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  handleconfirmbuttonclick(order.orderNumber)
+                                }
+                                className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
+                              >
+                                Confirm
+                              </button>
+                            ) : (
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  handleofdbuttonclick(order.orderNumber)
+                                }
+                                className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
+                              >
+                                Out for delivery
+                              </button>
+                            )}
+                            <button
+                              type="button"
+                              onClick={() =>
+                                handledeletebuttonclick(order.orderNumber)
+                              }
+                              className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
+                            >
+                              Delete
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <Loading />
+              )}
+            </div>
           </div>
         </div>
-      </div>
-      {showOverlay && (
-        <ConfirmOverlay handleCloseOverlay={handleCloseOverlay} />
-      )}
-    </div>
+        {showConfirmOverlay && (
+          <ConfirmOrderOverlay
+            handleCloseOverlay={handleconfirmcloseoverlay}
+            orderNumber={orderNumber}
+          />
+        )}
+        {showOfdOverlay && (
+          <ConfirmOfdOverlay
+            handleCloseOverlay={handleofdcloseoverlay}
+            orderNumber={orderNumber}
+          />
+        )}
+        {showDeleteOverlay && (
+          <ConfirmOverlay
+            handleCloseOverlay={handledeletecloseoverlay}
+            orderNumber={orderNumber}
+          />
+        )}
+      </div> : <NoData/>}
+    </>
   );
 };
 

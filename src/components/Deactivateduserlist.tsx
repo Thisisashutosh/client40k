@@ -5,6 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import Loading from "./Loading";
 import ActivateUserOverlay from "./ActivateUserOverlay";
 import DeleteUserOverlay from "./DeleteUserOverlay";
+import NoData from "./NoData";
 
 const Deactivateduserlist = () => {
   const [showDeactivateOverlay, setShowDeactivateOverlay] = useState(false);
@@ -56,7 +57,7 @@ const Deactivateduserlist = () => {
   return (
     <>
       <Toaster />
-      <div>
+      {!data ? <div>
         <div className="flex flex-col">
           <div className=" overflow-x-auto ">
             <div className="p-1.5 md:w-[calc(100vw-16rem)] h-screen inline-block align-middle">
@@ -144,7 +145,7 @@ const Deactivateduserlist = () => {
             userId={userId}
           />
         )}
-      </div>
+      </div> : <NoData/>}
     </>
   );
 };

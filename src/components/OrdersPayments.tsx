@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import ConfirmOverlay from './ConfirmOverlay';
 
-const Payment = () => {
+const OrdersPayments = () => {
   const [showOverlay, setShowOverlay] = useState(false);
 
   const handledeletebuttonclick = () => {
@@ -205,4 +205,4 @@ const Payment = () => {
   )
 }
 
-export default Payment
+export default OrdersPayments
