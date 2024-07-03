@@ -43,7 +43,7 @@ const NoData = () => {
       </svg>
       <h1 className="text-2xl text-center text-gray-800">No data available</h1>
       <h3 className="text-base text-center text-gray-600">
-        Refresh or check your internet connection if no data appears on the
+        Refresh the page or check your internet connection if no data appears on the
         screen
       </h3>
     </div>

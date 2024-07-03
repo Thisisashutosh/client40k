@@ -57,7 +57,7 @@ const Deactivateduserlist = () => {
   return (
     <>
       <Toaster />
-      {!data ? <div>
+      {data ? <div>
         <div className="flex flex-col">
           <div className=" overflow-x-auto ">
             <div className="p-1.5 md:w-[calc(100vw-16rem)] h-screen inline-block align-middle">

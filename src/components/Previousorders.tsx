@@ -17,7 +17,7 @@ const Previousrders = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "http://localhost:8080/orders/gettodaysorders"
+          "http://localhost:8080/orders/getpreviousorders"
         );
         if (response.data.status === "error") {
           toast.error("Error fetching products");
@@ -49,7 +49,7 @@ const Previousrders = () => {
   const handleoutfordelivery = () => {};
   return (
     <>
-      {!data ? (
+      {data ? (
         <div>
           <div className="flex flex-col">
             <div className=" overflow-x-auto ">

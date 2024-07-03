@@ -54,7 +54,7 @@ const Itemlist = () => {
   };
   return (
     <>
-      {!data ? <div>
+      {data ? <div>
         <div className="flex flex-col">
           <div className=" overflow-x-auto ">
             <div className="p-1.5 md:w-[calc(100vw-16rem)] h-screen inline-block align-middle">
@@ -108,7 +108,7 @@ const Itemlist = () => {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200 ">
-                      {data.map((product) => (
+                      {data.map((product:any) => (
                         <tr className="hover:bg-gray-100 ">
                           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
                             {product.productId}

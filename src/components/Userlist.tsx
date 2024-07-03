@@ -55,7 +55,7 @@ const Userlist = () => {
   return (
     <>
       <Toaster />
-      {!data ? (
+      {data ? (
         <div>
           <div className="flex flex-col">
             <div className=" overflow-x-auto ">
